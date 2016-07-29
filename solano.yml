@@ -1,0 +1,13 @@
+java:
+  java_version: java-8-oracle
+  maven_version: '3.3'
+hooks:
+  pre_setup: mvn install -PreducedMemory -Dfindbugs.skip=true
+tests:
+  - mvn findbugs:findbugs
+  - mvn javadoc:javadoc
+cache:
+  key_paths:
+    - pom.xml
+  save_paths:
+    - HOME/.m2  
